@@ -17,6 +17,8 @@ import ImageViewer from './ImageViewer';
 import styles from './styles/TourRecord';
 import Utils from '../utils';
 
+const playButton = require('assets/youtube_play_button.png');
+
 export default class TourRecord extends Component {
     constructor(props) {
         super(props);
@@ -91,11 +93,19 @@ export default class TourRecord extends Component {
                   onPress={
                         () => this._onVideoClick(record.video)
                     }
-                >
+                ><View>
                   <Image
                     style={styles.media}
                     source={{ uri: `https://img.youtube.com/vi/${record.video.slice(-11)}/0.jpg` }}
-                  />
+                  >
+                    <View>
+                      <Image
+                        style={styles.youtubeButton}
+                        source={playButton}
+                      />
+                    </View>
+                  </Image>
+                </View>
                 </TouchableHighlight>);
             }
         }
